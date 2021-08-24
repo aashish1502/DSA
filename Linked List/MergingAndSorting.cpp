@@ -16,13 +16,13 @@ LinkedListNode* CreatNode(int data){
 }
 
 void Insert(LinkedListNode* head, int data){
-
-    LinkedListNode* temp = head;
+    
     LinkedListNode* node = CreatNode(data);
-
     if(head == nullptr){
+        cout << "made a new node"<<endl;
         head = node;
     }
+    LinkedListNode* temp = head;
 
     while(temp->next != nullptr) temp = temp->next;
     temp->next = node;
@@ -64,15 +64,18 @@ int main(void){
 
     int n, x;
     cin >> n;
-    LinkedListNode* head1;
+    LinkedListNode* head1 = CreatNode(2);
 
     while(n--){
         cin >> x;
         Insert(head1, x);
     }
 
+    cout << "Printing the LL"<<endl;
+    PrintLL(head1);
+
     cin >> n;
-    LinkedListNode* head2;
+    LinkedListNode* head2 = CreatNode(5);
 
     while(n--){
         cin >> x;
