@@ -35,7 +35,7 @@ LinkedListNode* MergeAndSort(LinkedListNode* head1, LinkedListNode* head2){
     if(head1 == nullptr) return head2;
     if(head2 == nullptr) return head1;
 
-    if(head1->data >= head2->data){
+    if(head1->data <= head2->data){
         head = head1;
         head->next = MergeAndSort(head1->next, head2);
     }
@@ -52,10 +52,11 @@ void PrintLL(LinkedListNode* head){
 
     LinkedListNode* temp = head;
 
-    while(!head){
+    while(temp != nullptr){
         cout << temp->data << " ";
         temp = temp->next;
     }
+    cout <<"\n";
 
 }
 
@@ -64,7 +65,9 @@ int main(void){
 
     int n, x;
     cin >> n;
-    LinkedListNode* head1 = CreatNode(2);
+    cin >> x;
+    n-=1;
+    LinkedListNode* head1 = CreatNode(x);
 
     while(n--){
         cin >> x;
@@ -75,7 +78,9 @@ int main(void){
     PrintLL(head1);
 
     cin >> n;
-    LinkedListNode* head2 = CreatNode(5);
+    cin >> x;
+    n-=1;
+    LinkedListNode* head2 = CreatNode(x);
 
     while(n--){
         cin >> x;
